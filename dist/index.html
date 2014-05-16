@@ -1,0 +1,148 @@
+<!DOCTYPE html><!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="repx" ng-controller="AppCtrl"> <![endif]--><!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" ng-app="repx" ng-controller="AppCtrl"> <![endif]--><!--[if IE 8]>
+<html class="no-js lt-ie9" ng-app="repx" ng-controller="AppCtrl"> <![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="repx" ng-controller="AppCtrl as AppCtrl"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+  <title ng-bind="page.getContextValue('page', 'title') || 'RepX.me'">RepX.me</title>
+  <meta name="description" content="The UI used for the RepX Tracker application.">
+  <meta name="copyright" content="Steven Nance <steven@devtrw.com> - All Rights Reserved"/>
+  <meta name="author" content="Steven Nance <steven@devtrw.com>"/>
+
+  <!--
+    Don't forget the OpenGraph and twitter tags on actual site:
+      https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+  -->
+  <meta property="og:title" content="RepX Tracker UI"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="RepX Tracker"/>
+  <meta property="og:url" content="https://track.repx.me"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="fb:app_id" content=""/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@repx">
+  <meta name="twitter:title" content="RepX">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:creator" content="@llwt">
+  <meta name="twitter:image:src" content="">
+
+  <!-- IE 10 Metro tile icon -->
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/styles/brand/repx/img/favicon/144.png">
+  <!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/styles/brand/repx/img/favicon/152.png">
+  <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/styles/brand/repx/img/favicon/144.png">
+  <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/styles/brand/repx/img/favicon/120.png">
+  <!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/styles/brand/repx/img/favicon/114.png">
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/styles/brand/repx/img/favicon/72.png">
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="/styles/brand/repx/img/favicon/57.png">
+  <link rel="icon" href="/styles/brand/repx/img/favicon/32.png" sizes="32x32">
+
+  <base href="/">
+
+  <!-- load fonts early to try to avoid flicker -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic"
+        rel="stylesheet"
+        type="text/css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+        rel="stylesheet"
+        type="text/css">
+  <link href="https://s3.amazonaws.com/static.repx.me/fonts/glyphicons/glyphicons-pro.min.css"
+        rel="stylesheet"
+        type="text/css">
+
+  <!-- inject:app-style:css --><link rel="stylesheet" href="/dist/styles/app-d41d8cd9.css"><!-- endinject -->
+  <!--<link type="text/css" href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css"><-->
+  <!--<link type="text/css"-->
+  <!--href="https://cdn.datatables.net/plug-ins/e9421181788/integration/bootstrap/3/dataTables.bootstrap.css">-->
+
+  <!-- according to the docs this must be in the HEAD, is that actually necessary? -->
+  <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+</head>
+<body class="header-fixed-top" ng-class="{
+  'header-fixed-top': true,
+  'sidebar-left-open': AppCtrl.navState.navLeft.show,
+  'sidebar-right-open': AppCtrl.navState.navRight.show
+}">
+  <!--[if lt IE 7]>
+  <p class="outdated-alert">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+  </p><![endif]-->
+
+  <noscript>
+    Please enable Javascript to experience this site :)
+  </noscript>
+
+  <repx-nav-left></repx-nav-left>
+  <repx-nav-right></repx-nav-right>
+
+  <div id="page-container">
+    <repx-header></repx-header>
+    <div id="fx-container" class="fx-opacity">
+
+      <div id="page-content" class="block">
+
+        <header class="block-header">
+          <!--
+           If you do not want a link in the header, instead of
+           .header-title-link you can use a div with the class
+           .header-section
+          -->
+          <a href="" class="header-title-link">
+            <h1>
+              <i ng-show="page.hasContextValue('icon')"
+                 ng-class="['fa', 'fa-' + page.getContextValue('icon'), ' animation-expandUp']"></i>
+              <span>{{ page.getTitle() }}</span>
+              <br>
+              <small>{{ page.getSubTitle() }}</small>
+            </h1>
+          </a>
+        </header>
+
+        <ul class="breadcrumb breadcrumb-top">
+          <li><i class="fa fa-file-o"></i></li>
+          <li>TODO</li>
+          <li>
+            <a href="">Breadcrumbs</a>
+          </li>
+        </ul>
+        <!-- .breadcrumb.breadcrumb-top -->
+
+        <div>TODO: Flash Messages</div>
+        <div ui-view></div>
+
+      </div>
+      <!-- # page-content.block -->
+
+      <footer>TODO: Footer</footer>
+
+    </div>
+    <!-- #fx-container -->
+  </div>
+  <!-- #page-container -->
+
+  <!-- Should we load shims for other browsers? -->
+  <!--[if lt IE 9]><!-- inject:shim:js --><!-- endinject --><![endif]-->
+
+  <!-- Load anything you can from the Google CDN! -->
+  <!-- {@see http://blog.angularjs.org/2012/07/angularjs-now-hosted-on-google-cdn.html} -->
+  <!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+  <!--<script src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>-->
+  <!--<script src="https://cdn.datatables.net/plug-ins/e9421181788/integration/bootstrap/3/dataTables.bootstrap.js"></script>-->
+  <!-- inject:vendor:js --><!-- endinject -->
+
+  <!-- inject:app:js --><!-- endinject -->
+  <!-- inject:templates:js --><!-- endinject -->
+</body>
+</html>
