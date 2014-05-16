@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example RepX Widget Page</title>
+    <!--
+      Nothing is required in the head of your page for
+      the RepX widgets to work! We are just loading the
+      bootstrap styles for this example.
+    -->
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <!--
+      Like the stylesheets above this content is
+      just filler for the example. The only things required
+      are the widget tags that you can find near the end of the page.
+    -->
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">Example RepX Widgets</h3>
+        <ul class="nav nav-justified">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Downloads</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="jumbotron container-fluid">
+        <h1>Marketing stuff!</h1>
+        <div class="lead row">
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+          <div class="col-xs-offset-3 col-xs-6">
+
+            <!--
+                Here is the first example widget on the page. This will cycle
+                through the 10 most recent reviews. The content in between the
+                widget tags will be replaced once the widget has fully loaded.
+            -->
+
+            <!-- ===============================================================
+            ---- START: Recent Reviews Widget ----------------------------------
+            ================================================================ -->
+            <repx-recent-reviews-widget>
+              <h3>Loading the awesome things people recently said about us!</h3>
+            </repx-recent-reviews-widget>
+            <!-- ===============================================================
+            ---- END: Recent Reviews Widget ------------------------------------
+            ================================================================ -->
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <h2>Gravida Facilisis</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h2>Recent Reviews!</h2>
+
+          <!--
+              Below is another example of the recent reviews widget. By default
+              the widgets will fluidly adjust their width to match their
+              containing element, try adjusting your browser size or viewing
+              this page from a mobile device.
+          -->
+
+          <!-- =================================================================
+          ---- START: Recent Reviews Widget ----------------------------------
+          ================================================================== -->
+          <repx-recent-reviews-widget></repx-recent-reviews-widget>
+          <!-- =================================================================
+          ---- END: Recent Reviews Widget ------------------------------------
+          ================================================================== -->
+
+          <p><a class="btn btn-primary pull-right" href="https://demo.repx.me/reviews" role="button">See More!</a></p>
+       </div>
+        <div class="col-md-4 col-sm-12">
+          <h2>Contact Us</h2>
+
+          <!--
+              This is an example of the lead form widget with the optional
+              "Appointment" widget enabled. When the user submits the form
+              they will be shown a secon page asking if they want to schedule
+              an appointment. The example on this page submits to a test account
+              so feel free to play around with it as much as you like!
+          -->
+
+          <!-- =================================================================
+          ---- START: Lead Form Widget -----------------------------------------
+          ================================================================== -->
+          <repx-lead-form-widget show-appointment-widget="true"></repx-lead-form-widget>
+          <!-- =================================================================
+          ---- END: Lead Form Widget -------------------------------------------
+          ================================================================== -->
+
+        </div>
+      </div>
+      <div class="footer">
+        <p>&copy; Company 2014</p>
+      </div>
+
+    </div>
+
+    <!--
+        Adding the widget script tag to the bottom of the page allows
+        for all of the static page elements to load first. This
+        ensures that the end user has access to the page content as soon
+        as possible.
+    -->
+    <!-- =======================================================================
+    ---- START: widgets.js include ---------------------------------------------
+    ======================================================================== -->
+    <script src="https://demo.repx.me/widgets.js"></script>
+    <!-- =======================================================================
+    ---- END: widgets.js include -----------------------------------------------
+    ======================================================================== -->
+  </body>
+</html>
