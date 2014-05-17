@@ -28,9 +28,13 @@ var config = {
 };
 
 var connectLr = require( 'connect-livereload' );
+var dgeni = require( 'dgeni' );
 var express = require( 'express' );
 var gulp = require( 'gulp' );
+var gClosureCompiler = require( 'gulp-closure-compiler' );
 var gInject = require( 'gulp-inject' );
+var gJscs = require( 'gulp-jscs');
+var gJsHint = require( 'gulp-jshint');
 var gMinifyCss = require( 'gulp-minify-css' );
 var gPlumber = require( 'gulp-plumber' );
 var gRev = require( 'gulp-rev' );
@@ -43,7 +47,7 @@ var lrServer = require( 'tiny-lr' )();
 var Q = require( 'q' );
 var source = require( 'vinyl-source-stream' );
 var watchify = require( 'watchify' );
-var app = express();
+var expressServer = express();
 
 /**
  * Reasoning for this flag:
@@ -81,9 +85,9 @@ function clean( relativePath ) {
  * assets from the directory specified in {@link buildConfig.dev.dir}.
  */
 function startExpress() {
-  app.use( connectLr() );
-  app.use( express.static( config.dev.dir ) );
-  app.listen( config.dev.express.port );
+  expressServer.use( connectLr() );
+  expressServer.use( express.static( config.dev.dir ) );
+  expressServer.listen( config.dev.express.port );
 }
 
 /**
@@ -167,12 +171,45 @@ function indexHtml() {
   ] );
 }
 
+function app() {
+  'use strict';
+
+  var deferred = Q.defer();
+
+  gulp.src( config.app.dir + '/**/*.js' )
+    .pipe( gPlumber() )
+    .pipe( gJscs() )
+    .pipe( gJsHint('.jshintrc') )
+    .pipe( gJsHint.reporter('jshint-stylish') )
+    .pipe( gClosureCompiler( {
+      compilerPath: 'bower_components/closure-compiler/compiler.jar',
+      fileName: 'app.js'
+    } ) )
+    .pipe( gulp.dest( config.dev.dir ) )
+    .on( 'end', deferred.resolve );
+
+  return deferred.promise;
+}
+
+function rebuildDocs() {
+  'use strict';
+
+  dgeni.generator( 'dgeni.conf.js' )();
+}
 
 gulp.task( 'default', function () {
+  'use strict';
   startExpress();
   startLiveReload();
   styles()
+    .then( app )
     .then( indexHtml )
     .fail( gUtil.log )
     .done();
 } );
+
+gulp.task( 'docs', function () {
+  'use strict';
+
+  rebuildDocs();
+});

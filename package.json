@@ -12,6 +12,7 @@
     "grunt-webfont": "~0.2.2",
     "gulp": "^3.6.2",
     "gulp-angular-templatecache": "^1.1.1",
+    "gulp-closure-compiler": "^0.2.1",
     "gulp-concat": "^2.1.7",
     "gulp-imagemin": "^0.1.5",
     "gulp-inject": "^0.4.1",
@@ -37,19 +38,34 @@
     "node-sass": "~0.7.0",
     "tiny-lr": "0.0.7",
     "vinyl-source-stream": "^0.1.1",
-    "watchify": "^0.6.3"
+    "watchify": "^0.6.3",
+    "gulp-jscs": "^0.5.0",
+    "gulp-jshint": "^1.6.1",
+    "jshint-stylish": "^0.2.0",
+    "dgeni": "^0.3.0",
+    "canonical-path": "0.0.2",
+    "dgeni-packages": "^0.9.2",
+    "jsdoc": "^3.3.0-alpha5",
+    "event-stream": "^3.1.5",
+    "shelljs": "^0.3.0",
+    "semver": "^2.3.0",
+    "lodash": "^2.4.1",
+    "marked": "^0.3.2",
+    "winston": "^0.7.3"
   },
-  "homepage": "https://github.com/repx/repx-ng-widgets",
+  "jshint": {},
+  "homepage": "https://github.com/devtrw/ng-skeleton",
   "license": "MIT",
-  "name": "repx-ng-widgets",
+  "name": "ng-skeleton",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/repx/repx-ng-widgets"
+    "url": "https://github.com/devtrw/ng-skeleton.git"
   },
   "scripts": {
     "install": "bower install",
     "test": "./node_modules/.bin/gulp test"
   },
-  "version": "0.1.0"
+  "branchVersion": "0.0.1",
+  "version": "0.0.1"
 }
