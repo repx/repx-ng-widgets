@@ -1,4 +1,4 @@
-repx-ng-widgets
-===============
+RepX Widgets
+============
 
-Static assets (js, css, images, etc.) for the RepX embedable widgets
+Take a look at [the wiki](https://github.com/repx/repx-ng-widgets/wiki) for the project docs!
