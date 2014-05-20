@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="Description"
         content="AngularJS is what HTML would have been, had it been designed for building web-apps.
-Declarative templates with data-binding, MVC, dependency injection and great
-testability story all implemented with pure client-side JavaScript!">
+                 Declarative templates with data-binding, MVC, dependency injection and great
+                 testability story all implemented with pure client-side JavaScript!">
   <meta name="fragment" content="!">
   <title ng-bind-template="AngularJS: {{ currentArea.name }}: {{ currentPage.name || 'Error: Page not found'}}">AngularJS</title>
 
@@ -219,7 +219,7 @@ testability story all implemented with pure client-side JavaScript!">
         </div>
         <div class="grid-right">
           <div id="loading" ng-show="loading">Loading...</div>
-          <div ng-hide="loading" ng-include="currentPage.outputPath || 'Error404.html'" onload="afterPartialLoaded()" autoscroll></div>
+          <div ng-hide="loading" ng-include="currentPage.outputPath || 'Error404.html'" onload="afterPartialLoaded()"  autoscroll></div>
         </div>
       </div>
     </section>
@@ -229,7 +229,7 @@ testability story all implemented with pure client-side JavaScript!">
         <p class="pull-right"><a back-to-top>Back to top</a></p>
 
         <p>
-          Super-powered by Google ©2010-2014
+          Super-powered by Google  ©2010-2014
           ( <a id="version"
                ng-href="https://github.com/angular/angular.js/blob/master/CHANGELOG.md#{{versionNumber}}"
                ng-bind-template="v{{version}}">
