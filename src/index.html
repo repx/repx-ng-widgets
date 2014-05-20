@@ -1,18 +1,14 @@
-<!DOCTYPE html><!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="app" ng-controller="AppCtrl as AppCtrl"> <![endif]--><!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8" ng-app="app" ng-controller="AppCtrl as AppCtrl"> <![endif]--><!--[if IE 8]>
-<html class="no-js lt-ie9" ng-app="app" ng-controller="AppCtrl as AppCtrl"> <![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" ng-app="app" ng-controller="AppCtrl as AppCtrl"> <!--<![endif]-->
+<!DOCTYPE html>
+<html class="no-js" ng-app="app" ng-controller="AppCtrl as AppCtrl">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
-  <title>TODO</title>
-  <meta name="description" content="TODO: Set the page description">
-  <meta name="copyright" content="Steven Nance <steven@devtrw.com> - All Rights Reserved"/>
+  <title>Angular Skeleton</title>
+  <meta name="description" content="Skeleton for Angular Apps">
+  <meta name="copyright" content="Steven Nance <steven@devtrw.com>"/>
   <meta name="author" content="Steven Nance <steven@devtrw.com>"/>
-
 
   <base href="/">
 
@@ -29,27 +25,17 @@
     Please enable Javascript to experience this site :)
   </noscript>
 
-  <div id="page-container">
-    <nav>TODO: Nav</nav>
-    <header>TODO: Header</header>
-    <div id="page-content">
-        <div ui-view></div>
-    </div> <!-- #page-content -->
-    <footer>TODO: Footer</footer>
-  </div> <!-- #page-container -->
+  <h1> 1 + 1 = {{ 1 + 1 }}</h1>
 
-  <!--
-    Load shims for all browsers since most will handle browser detection automatically.
-    Though still keeping them separate from other vendors for easy removal on projects
-    that do not need to target old browsers.
-  -->
-  <!-- inject:shim:js --><!-- endinject -->
+  <!-- Should we load shims for other browsers? -->
+  <!--[if lt IE 9]><!-- inject:shim:js --><!-- endinject --><![endif]-->
 
   <!-- Load anything you can from the Google CDN! -->
   <!-- {@see http://blog.angularjs.org/2012/07/angularjs-now-hosted-on-google-cdn.html} -->
   <!-- inject:vendor:js --><!-- endinject -->
 
   <!-- inject:app:js --><!-- endinject -->
+
   <!-- inject:templates:js --><!-- endinject -->
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "name": "TODO-set-project-name",
+  "devDependencies": {
+    "angular": "~1.2.16",
+    "json3": "~3.3.0",
+    "closure-compiler": "http://dl.google.com/closure-compiler/compiler-latest.zip",
+    "closure-linter": "https://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz",
+    "lunr.js": "~0.5.3",
+    "google-code-prettify": "~1.0.1",
+    "bootstrap": "~3.1.1",
+    "open-sans-fontface": "~1.0.4"
+  }
+}

@@ -1,0 +1,6 @@
+@ngdoc error
+@name app:example
+@fullName Example MinErr Error
+@description
+
+This error should be removed. It's only here as an exmample.
