@@ -59,7 +59,9 @@
     "through": "^2.3.4",
     "minerr-strip": "0.0.1-alpha.1",
     "chalk": "^0.4.0",
-    "gulp-expect-file": "0.0.5"
+    "gulp-expect-file": "0.0.5",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-karma": "0.0.4"
   },
   "jshint": {},
   "homepage": "https://github.com/devtrw/ng-skeleton",

@@ -1,28 +1,13 @@
-function minErr() { /* This will be replaced during compilation */ };
-
-var appMinErr = minErr('app');
+function minErr() { /* This will be replaced during compilation */ }
 
 /**
  * @ngdoc module
- * @name app
- * @module app
+ * @name repx.widget
+ * @module repx.widget
  *
  * @description
  * The root app
- *
- * @type {ng.IModule}
  */
-var app = angular.module('app', []);
+angular.module('repx.widget', []);
 
-app.run( function () {
-  'use strict';
-
-  if (false === true) {
-    throw appMinErr('example', 'This is and example {0}', 'error message. TODO: Remove me!');
-  }
-} );
-
-app.controller('AppCtrl', function () {
-  'use strict';
-
-} );
+require( './components/recent-reviews/recent-reviews' );

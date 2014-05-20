@@ -7,7 +7,8 @@
  * Configuration for the build process of the app application.
  */
 module.exports = {
-  app: require('./app'),
-  dev: require('./dev'),
-  dist: require('./dist')
+  app: require( './app' ),
+  dev: require( './dev' ),
+  dist: require( './dist' ),
+  karma: require( './karma' )
 };

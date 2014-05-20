@@ -1,0 +1,35 @@
+<div class="repx-widget-container">
+
+  <div class="repx-recent-reviews-widget">
+
+    <h3 ng-if="widgetCtrl.config.showTitle" class="repx-widget-title">
+      {{ widgetCtrl.config.widgetTitle }}
+    </h3>
+
+    <div ng-show="widgetCtrl.loading" class="repx-loading-indicator">
+      {{ widgetCtrl.config.loadingIndicator }}
+    </div>
+
+
+    <div ng-show="$index === widgetCtrl.showIndex"
+         ng-repeat="review in widgetCtrl.reviews"
+         class="media repx-widget-hide-animation">
+
+      <a class="reviewer-image-container" href="#" ng-if="review.reviewerImageUrl">
+        <div class="reviewer-image"
+             title="{{ review.reviewerName }}"
+             style="background-image: url({{ review.reviewerImageUrl }});"></div>
+      </a>
+
+      <blockquote class="media-body reviewer-review-container">
+        <p>{{ review.review }}</p>
+        <footer>
+          Review by <cite title="Reviewer Name">{{ review.reviewerName }}</cite>
+        </footer>
+      </blockquote>
+
+    </div>
+
+  </div>
+
+</div>

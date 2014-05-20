@@ -23,11 +23,7 @@
    * @property {buildConfig.dev} config.dev
    * @property {buildConfig.dist} config.dist
    */
-  var config = {
-    app: require( './config/app.js' ),
-    dev: require( './config/dev.js' ),
-    dist: require( './config/dist.js' )
-  };
+  var config = require( './config/buildConfig' );
 
   var chalk = require( 'chalk' );
   var connectLr = require( 'connect-livereload' );
@@ -38,8 +34,10 @@
   var gConcat = require( 'gulp-concat' );
   var gExpectFile = require( 'gulp-expect-file' );
   var gInject = require( 'gulp-inject' );
+  var gJasmine = require( 'gulp-jasmine' );
   var gJscs = require( 'gulp-jscs' );
   var gJsHint = require( 'gulp-jshint' );
+  var gKarma = require( 'gulp-karma' );
   var gMinerrStrip = require( 'gulp-minerr-strip' );
   var gMinifyCss = require( 'gulp-minify-css' );
   var gPlumber = require( 'gulp-plumber' );
@@ -187,7 +185,7 @@
       var indexSource = path.join( config.app.dir, config.app.index );
 
       log.event( 'Rebuilding index.html' );
-      log.detail( 'dest', dest);
+      log.detail( 'dest', dest );
       log.detail( 'indexSource', indexSource );
 
       gulp.src( indexSource )
@@ -310,13 +308,25 @@
       .done();
   } );
 
-  gulp.task( 'test', function () {
-    //      .pipe( gPlumber() )
-    //  .pipe( gJscs() )
-    //      .pipe( gJsHint( '.jshintrc' ) )
-    //      .pipe( gJsHint.reporter( 'jshint-stylish' ) )
-    //      .pipe(  )
+  gulp.task( 'lint', function () {
 
+    return gulp.src( path.join( config.app.dir, '**/*.js' ) )
+      .pipe( gPlumber() )
+      //  .pipe( gJscs() )
+      .pipe( gJsHint( '.jshintrc' ) )
+      .pipe( gJsHint.reporter( 'jshint-stylish' ) );
+  } );
+
+  gulp.task( 'test', ['lint'], function () {
+    var testScripts = config.app.vendorJs
+      .concat( [
+        path.join( config.dev.dir, config.app.scriptsDir, 'app*.js' ),
+        'bower_components/angular-mocks/angular-mocks.js',
+        path.join( config.app.dir, '**/*_test.js' )
+      ] );
+
+    return gulp.src( testScripts )
+      .pipe( gKarma( config.karma ) );
   } );
 
   gulp.task( 'docs', function () {
